@@ -7,4 +7,8 @@ install:
     - composer update
 
 script:
-    - bin/build.sh
+    - bin/run # before compile
+
+    # phar
+    - bin/build.sh # compile to dummy.phar
+    - tmp/build/dummy.phar # this file should exist and be runable
