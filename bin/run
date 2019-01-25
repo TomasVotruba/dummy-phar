@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php
+
+echo "hi";
+
+var_dump(class_exists(
+
+require_once __DIR__ . '/../vendor/autoload.php';

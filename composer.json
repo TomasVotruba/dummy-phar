@@ -1,0 +1,14 @@
+{
+    "autoload": {
+        "php": "^7.1",
+        "psr-4": {
+            "DummyPhar\\": "src"
+        }
+    },
+    "require-dev": {
+        "humbug/box": "^3.4"
+    },
+    "require": {
+        "humbug/php-scoper": "^0.11.4"
+    }
+}
