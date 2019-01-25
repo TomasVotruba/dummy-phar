@@ -10,7 +10,7 @@ return [
                 return $content;
             }
 
-            return str_replace('__DIR__ . \'/..', '\'phar://rector.phar', $content);
+            return str_replace('__DIR__ . \'/..', '\'phar://dummy.phar', $content);
         },
     ],
     'whitelist' => [

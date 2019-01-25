@@ -1,7 +1,7 @@
 {
-    "alias": "dummy-phar.phar",
+    "alias": "dummy.phar",
     "banner": false,
-    "base-path": "build",
+    "base-path": "tmp/build",
     "check-requirements": false,
     "compactors": [
         "KevinGH\\Box\\Compactor\\PhpScoper"
@@ -11,6 +11,6 @@
         "src",
         "vendor"
     ],
-    "output": "rector.phar",
-    "php-scoper": "scoper.inc.php"
+    "output": "../dummy.phar",
+    "php-scoper": "../../scoper.inc.php"
 }

@@ -3,6 +3,16 @@
 
 echo "hi";
 
-var_dump(class_exists(
+echo PHP_EOL;
+var_dump(class_exists(DummyPhar\DummyClass::class));
+
+echo PHP_EOL;
+var_dump(getcwd());
 
 require_once __DIR__ . '/../vendor/autoload.php';
+
+echo PHP_EOL;
+var_dump(class_exists(DummyPhar\DummyClass::class));
+
+echo PHP_EOL;
+var_dump(\Safe\getcwd());
