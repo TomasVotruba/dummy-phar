@@ -1,16 +1,10 @@
 {
-    "alias": "dummy.phar",
-    "banner": false,
-    "base-path": "tmp/build",
-    "check-requirements": false,
     "compactors": [
         "KevinGH\\Box\\Compactor\\PhpScoper"
     ],
+    "output": "../dummy.phar",
     "directories": [
-        "bin",
         "src",
         "vendor"
-    ],
-    "output": "../dummy.phar",
-    "php-scoper": "../../scoper.inc.php"
+    ]
 }

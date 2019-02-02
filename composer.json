@@ -7,10 +7,6 @@
     },
     "require": {
         "php": "^7.1",
-        "thecodingmachine/safe": "^0.1.11"
-    },
-    "require-dev": {
-        "humbug/box": "^3.4",
-        "humbug/php-scoper": "^0.11.4"
+        "composer/xdebug-handler": "^1.3"
     }
 }
