@@ -11,8 +11,9 @@ var_dump(getcwd());
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-echo PHP_EOL;
-var_dump(class_exists(DummyPhar\DummyClass::class));
+$xdebug = new Composer\XdebugHandler\XdebugHandler('dummy', '--ansi');
+$xdebug->check();
+unset($xdebug);
 
 echo PHP_EOL;
-var_dump(\Safe\getcwd());
+var_dump(class_exists(DummyPhar\DummyClass::class));
