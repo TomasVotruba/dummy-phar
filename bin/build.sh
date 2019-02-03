@@ -4,8 +4,11 @@
 set -o xtrace
 
 # create build
+rm -rf build
+
 mkdir -p build/bin
 cp bin/run build/bin/run
+cp -r config build/config
 cp -r src build/src
 cp -r vendor build/vendor
 cp composer.json build/composer.json
@@ -14,5 +17,4 @@ cp composer.json build/composer.json
 cp box.json build/box.json
 
 # build + prefix
-mkdir -p tmp/build
 ./box.phar compile --working-dir build

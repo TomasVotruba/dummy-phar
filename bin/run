@@ -1,19 +1,48 @@
 #!/usr/bin/env php
 <?php
 
-echo "hi";
+use Composer\XdebugHandler\XdebugHandler;
+use DummyPhar\DummyClass;
 
-echo PHP_EOL;
-var_dump(class_exists(DummyPhar\DummyClass::class));
+try {
+    // not autoload yet
+    if (class_exists(DummyPhar\DummyClass::class) === true) {
+        throw new RuntimeException();
+    }
 
-echo PHP_EOL;
-var_dump(getcwd());
+    var_dump(getcwd());
 
-require_once __DIR__ . '/../vendor/autoload.php';
+    require_once __DIR__ . '/../vendor/autoload.php';
 
-$xdebug = new Composer\XdebugHandler\XdebugHandler('dummy', '--ansi');
-$xdebug->check();
-unset($xdebug);
+    var_dump(__DIR__ . '/../vendor/autoload.php');
 
-echo PHP_EOL;
-var_dump(class_exists(DummyPhar\DummyClass::class));
+    if (file_exists(__DIR__ . '/../vendor/autoload.php') !== true) {
+        throw new RuntimeException();
+    }
+
+    // 3rd party autoload
+    if (class_exists(XdebugHandler::class) !== true) {
+        throw new RuntimeException();
+    }
+
+    // local autoload
+    if (class_exists(DummyPhar\DummyClass::class) !== true) {
+        throw new RuntimeException();
+    }
+
+    // create container and get service from it
+    $kernel = new \DummyPhar\DependencyInjection\DummyKernel('dev', true);
+    $kernel->boot();
+
+    $container = $kernel->getContainer();
+    $dummyService = $container->get(DummyPhar\DummyClass::class);
+    /** @var DummyClass $dummyService */
+    if ($dummyService->dum() !== 'dab') {
+        throw new RuntimeException();
+    }
+
+} catch (Throwable $throwable) {
+    // fail
+    echo 'ERROR';
+    exit(1);
+}

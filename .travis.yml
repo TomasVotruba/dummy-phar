@@ -4,11 +4,15 @@ php:
     - 7.3
 
 install:
-    - composer update
+    - composer install
 
 script:
-    - bin/run # before to see output
+    # before to see output
+    - bin/run
 
-    # phar
-    - bin/build.sh # compile to dummy.phar
-    - ./dummy.phar # this file should exist and work
+    # compile to dummy.phar
+    - bin/build.sh
+
+    # this should be same as "bin/run" and work without local vendor
+    - rm -rf /vendor
+    - ./dummy.phar

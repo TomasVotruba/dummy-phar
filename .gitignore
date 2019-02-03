@@ -3,3 +3,6 @@ composer.lock
 
 # building phar
 build
+
+/var
+dummy.phar

@@ -4,6 +4,7 @@
     ],
     "output": "../dummy.phar",
     "directories": [
+        "config",
         "src",
         "vendor"
     ]
