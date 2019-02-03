@@ -3,10 +3,11 @@
 
 use Composer\XdebugHandler\XdebugHandler;
 use DummyPhar\DummyClass;
+use DummyPhar\FirstPackage\ServiceFromFirstPackage;
 
 try {
     // not autoload yet
-    if (class_exists(DummyPhar\DummyClass::class) === true) {
+    if (class_exists(DummyClass::class) === true) {
         throw new RuntimeException();
     }
 
@@ -26,7 +27,7 @@ try {
     }
 
     // local autoload
-    if (class_exists(DummyPhar\DummyClass::class) !== true) {
+    if (class_exists(DummyClass::class) !== true) {
         throw new RuntimeException();
     }
 
@@ -34,10 +35,18 @@ try {
     $kernel = new \DummyPhar\DependencyInjection\DummyKernel('dev', true);
     $kernel->boot();
 
+    // does autodiscovery work?
     $container = $kernel->getContainer();
-    $dummyService = $container->get(DummyPhar\DummyClass::class);
+    $dummyService = $container->get(DummyClass::class);
     /** @var DummyClass $dummyService */
     if ($dummyService->dum() !== 'dab') {
+        throw new RuntimeException();
+    }
+
+    // does import glob work?
+    $firstPackageService = $container->get(ServiceFromFirstPackage::class);
+    /** @var ServiceFromFirstPackage $firstPackageService */
+    if ($firstPackageService->hi() !== 'hello') {
         throw new RuntimeException();
     }
 

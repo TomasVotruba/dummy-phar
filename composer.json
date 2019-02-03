@@ -12,7 +12,8 @@
     },
     "autoload": {
         "psr-4": {
-            "DummyPhar\\": "src"
+            "DummyPhar\\": "src",
+            "DummyPhar\\FirstPackage\\": "packages/FirstPackage/src"
         }
     }
 }
