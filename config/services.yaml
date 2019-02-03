@@ -1,0 +1,11 @@
+imports:
+    - { resource: '../packages/*/config/services.yaml' }
+
+services:
+    _defaults:
+        public: true
+        autowire: true
+
+    DummyPhar\:
+        resource: '../src'
+        exclude: '../src/{DependencyInjection}'

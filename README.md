@@ -4,9 +4,11 @@
 
 The goal of this repository is to wrap `/bin` + `/src` to standalone and prefixed `dummy.phar`.
 
-It uses 2 awesome tools
+## Features
 
-- [humbug/box](https://github.com/humbug/box)
-- [humbug/php-scoper](https://github.com/humbug/php-scoper)
-
-by [Théo FIDRY](https://github.com/theofidry)
+- `vendor/autoload.php` path is prefixed with `dummy-phar://phar` and included 
+- working Symfony PSR-4 autodiscovery 
+- working `imports:` with glob 
+- `Dummy\*` namespace is whitelisted, so users can extend it
+- uses `Symfony\Console`, `Symfony\HttpKernel` and `Symfony\DependencyInjection`
+ 
