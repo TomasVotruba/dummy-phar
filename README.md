@@ -7,7 +7,8 @@ The goal of this repository is to wrap `/bin` + `/src` to standalone and prefixe
 ## Features
 
 - `vendor/autoload.php` path is prefixed with `dummy-phar://phar` and included 
-- working Symfony autodiscovery 
+- working Symfony PSR-4 autodiscovery 
+- working `imports:` with glob 
 - `Dummy\*` namespace is whitelisted, so users can extend it
-- uses `Symfony\Console`
-- uses `Symfony\HttpKernel`
+- uses `Symfony\Console`, `Symfony\HttpKernel` and `Symfony\DependencyInjection`
+ 
