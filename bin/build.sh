@@ -9,6 +9,7 @@ rm -rf build
 mkdir -p build/bin
 cp bin/run build/bin/run
 cp -r config build/config
+cp -r packages build/packages
 cp -r src build/src
 cp -r vendor build/vendor
 cp composer.json build/composer.json
